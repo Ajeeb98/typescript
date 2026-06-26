@@ -69,7 +69,7 @@ console.log(numbers);
 //     [4,"John",'john@gmail.com',30,"Password3"],
 //     [5,"John",'john@gmail.com',30,"Password3"],
 // ];
-console.log(users);
+//console.log(users);
 
 //* object
 // let product:{
@@ -154,7 +154,7 @@ let aOb:A={
 //type C = A& B;
 
 type C= A& {
-    c:string;;
+    c:string;
 };
 
 let cObj:C= {
@@ -173,5 +173,94 @@ let dObj: A|B ={
 
 
 
+//! type literal
+
+type Tstatus = "error"|"success"|"fail"|"something";
+
+let responseStatus:Tstatus="error";
+responseStatus="success";
+responseStatus="something";
+responseStatus="fail";
 
 
+type TGreet=(x:string|number)=>void;
+//! function
+const greet :TGreet=(name)=> {
+    console.log("hello ", name);
+};
+// const greet = (name:string|number):void=> {
+//     console.log("hello ", name);
+// };
+
+
+
+greet("john");
+greet(123);
+
+
+const add= (x:number,y:number):number => {
+    return x+y;
+}
+
+
+//! interface
+
+interface Iuser{
+    readonly _id:string|number;
+    name:string;
+    email:string;
+    password:string;
+    phone?:string;
+}
+
+interface IUser2 extends Iuser{
+    age:number;
+}
+let user:IUser2={
+    _id:"1",
+    name:"",
+    email:"",
+    phone:"",
+    password:"",
+    age:56,
+}
+
+
+//! generic
+
+interface Ibox<T> {
+    value : T;
+}
+
+let stringBox:Ibox<string>={
+    value:"box",
+}
+
+let numberBox:Ibox<number>={
+    value: 12 ,
+}
+
+let Box: Ibox<{x:number;y:string}>={
+    value:{
+        x:12,
+        y:"sddd",
+    },
+};
+
+let Box1: Ibox<{x:number;y:string}>={
+
+    value:{
+        x:12,
+        y:"23",
+}
+}
+
+let Box3:Ibox<(x:number) =>number>=  {
+value:(a:number)=>{
+    return a;
+},
+};
+
+let Box2:Ibox<number[]>={
+    value:[1,2]
+};
