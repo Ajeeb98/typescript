@@ -50,23 +50,128 @@ console.log(numbers);
 
 //* tuple
 // id, name, email, age, password => [id, name, email, age , password]
-let userTuple:[number,string,string,number,string]=[
-    1,
-    "John",
-    'john@gmail.com',
-    30,
-    "Password3",
-];
+// let userTuple:[number,string,string,number,string]=[
+//     1,
+//     "John",
+//     'john@gmail.com',
+//     30,
+//     "Password3",
+// ];
 
-console.log(userTuple);
+// console.log(userTuple);
 
-// users:
+// // users:
 
-let users:[number,string,string,number,string][]=[
-    [1,"John",'john@gmail.com',30,"Password3"],
-    [2,"John",'john@gmail.com',30,"Password3"],
-    [3,"John",'john@gmail.com',30,"Password3"],
-    [4,"John",'john@gmail.com',30,"Password3"],
-    [5,"John",'john@gmail.com',30,"Password3"],
-];
+// let users:[number,string,string,number,string][]=[
+//     [1,"John",'john@gmail.com',30,"Password3"],
+//     [2,"John",'john@gmail.com',30,"Password3"],
+//     [3,"John",'john@gmail.com',30,"Password3"],
+//     [4,"John",'john@gmail.com',30,"Password3"],
+//     [5,"John",'john@gmail.com',30,"Password3"],
+// ];
 console.log(users);
+
+//* object
+// let product:{
+//     _id:number;
+//     name:string;
+//     description:string;
+//     price:number;
+// } = {
+//     _id:12,
+//     name:"product",
+//     description:"product",
+//     price:59,
+// }
+// console.log(product)
+
+// let product2 : {
+//     _id:number;
+//     name:string;
+//     description:string;
+//     price:number;
+// } = {
+//     _id:2,
+//     name:"babab",
+//     description:"good",
+//     price:56,
+// }
+
+//! type alias
+
+type Tproduct={
+    readonly _id:number;
+    name:string;
+    description?:string;
+    price:number;
+}
+let product:Tproduct
+ = {
+    _id:12,
+    name:"product",
+    description:"product",
+    price:59,
+}
+console.log(product)
+
+let product2 : Tproduct = {
+    _id:2,
+    name:"babab",
+    //description:"good",
+    price:56,
+}
+product.name="";
+//product._id=23
+
+
+//* union
+type ID = number| string | boolean
+let id:ID =1;
+id="";
+id=true;
+
+
+
+type TU={name:string; email:string;};
+
+let userArr:TU[]=[{email:"ohn@gmail.com",name:"Ohn"},{email:"",name:""}]
+
+type IDN=number|string;
+let idn:IDN=1;
+idn="";
+
+
+//* intersection
+
+type A={a:string;};
+
+type B={b:string;};
+
+let aOb:A={
+    a:""
+};
+
+//type C = A& B;
+
+type C= A& {
+    c:string;;
+};
+
+let cObj:C= {
+    a:"",
+    c:"",
+};
+
+//let cObj=A&B={
+//a:"",
+//b:"",};
+
+let dObj: A|B ={
+    a:"",
+    b:"",
+};
+
+
+
+
+
